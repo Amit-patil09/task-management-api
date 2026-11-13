@@ -14,6 +14,7 @@ public class TodoController {
 
     private AtomicLong counter = new AtomicLong(1);
 
+    // Returns the total number of tasks
     @GetMapping
     public List<Todo> getTodos() {
         return todos;
