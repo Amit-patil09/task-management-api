@@ -1,0 +1,10 @@
+---
+- name: Configure Task Management API server
+  hosts: webservers
+  become: no
+
+  vars_files:
+    - variables.yml
+
+  roles:
+    - task-api

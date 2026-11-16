@@ -1,0 +1,20 @@
+---
+- name: Install Java
+  apt:
+    name: "{{ java_package }}"
+    state: present
+    update_cache: yes
+
+- name: Create application directory
+  file:
+    path: "/opt/{{ app_name }}"
+    state: directory
+    mode: '0755'
+
+- name: Create application configuration
+  copy:
+    content: |
+      app.name={{ app_name }}
+      app.port={{ app_port }}
+    dest: "/opt/{{ app_name }}/application.properties"
+  notify: Restart task API

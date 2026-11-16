@@ -1,0 +1,4 @@
+---
+- name: Restart task API
+  debug:
+    msg: "Task Management API configuration changed. Restart action triggered."
